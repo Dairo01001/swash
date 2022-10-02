@@ -25,9 +25,19 @@ const teams = ["Grupo 1", "Grupo 2", "Destroller"];
 
 const NewBike = () => {
   const [service, setService] = useState("washed");
+  const [info, setInfo] = useState({
+    color: colors[0],
+    brand: brands[0],
+    team: teams[0],
+  });
 
   const handleChange = (e) => {
     setService(e.target.value);
+  };
+
+  const handleChangeTeam = (e) => {
+    const { name, value } = e.target;
+    setInfo({ ...info, [name]: value });
   };
 
   return (
@@ -100,7 +110,13 @@ const NewBike = () => {
           <Stack direction="row" spacing={2}>
             <FormControl sx={{ minWidth: "30%" }}>
               <InputLabel id="color">Color</InputLabel>
-              <Select labelId="color" label="Color">
+              <Select
+                labelId="color"
+                name="color"
+                label="Color"
+                value={info.color}
+                onChange={handleChangeTeam}
+              >
                 {colors.map((color) => {
                   return (
                     <MenuItem key={color} value={color}>
@@ -112,7 +128,13 @@ const NewBike = () => {
             </FormControl>
             <FormControl sx={{ minWidth: "30%" }}>
               <InputLabel id="brand">Marca</InputLabel>
-              <Select labelId="brand" label="Marca">
+              <Select
+                labelId="brand"
+                name="brand"
+                label="Marca"
+                value={info.brand}
+                onChange={handleChangeTeam}
+              >
                 {brands.map((brand) => {
                   return (
                     <MenuItem key={brand} value={brand}>
@@ -124,7 +146,13 @@ const NewBike = () => {
             </FormControl>
             <FormControl sx={{ width: "100%" }}>
               <InputLabel id="team">Grupo</InputLabel>
-              <Select labelId="team" label="Grupo">
+              <Select
+                labelId="team"
+                label="Grupo"
+                name="team"
+                value={info.team}
+                onChange={handleChangeTeam}
+              >
                 {teams.map((team) => {
                   return (
                     <MenuItem key={team} value={team}>
@@ -135,14 +163,22 @@ const NewBike = () => {
               </Select>
             </FormControl>
           </Stack>
-          <FormGroup sx={{
-            width: "100%",
-            paddingTop: 2,
-            display: "flex",
-            flexDirection: "row"
-          }}>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Empleado 1" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Empleado 1" />
+          <FormGroup
+            sx={{
+              width: "100%",
+              paddingTop: 2,
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <FormControlLabel
+              control={<Checkbox defaultChecked />}
+              label="Empleado 1"
+            />
+            <FormControlLabel
+              control={<Checkbox defaultChecked />}
+              label="Empleado 1"
+            />
           </FormGroup>
           <Stack paddingTop={2} width="100%">
             <TextareaAutosize
