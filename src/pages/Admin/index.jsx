@@ -4,6 +4,7 @@ import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { useState } from "react";
 import AdminList from "../../components/AdminList";
+import SelectBike from "../../components/SelectBike";
 
 const Admin = () => {
   const [value, setValue] = useState(0);
@@ -19,7 +20,7 @@ const Admin = () => {
         <Tab icon={<PersonAddAltIcon />} label="Nueva" />
         <Tab icon={<AdminPanelSettingsIcon />} label="Administrar" />
       </Tabs>
-      {value === 2 ? <AdminList /> : null}
+      {value === 0 ? <SelectBike /> : value === 1 ? null : <AdminList />}
     </div>
   );
 };
