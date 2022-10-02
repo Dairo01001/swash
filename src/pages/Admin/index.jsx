@@ -6,6 +6,7 @@ import { useState } from "react";
 import AdminList from "../../components/AdminList";
 import SelectBike from "../../components/SelectBike";
 import BikeTable from "../../components/BikeTable";
+import NewBike from "../../components/NewBike";
 
 const Admin = () => {
   const [value, setValue] = useState(0);
@@ -26,7 +27,9 @@ const Admin = () => {
           <SelectBike />
           <BikeTable />
         </Box>
-      ) : value === 1 ? null : (
+      ) : value === 1 ? (
+        <NewBike />
+      ) : (
         <AdminList />
       )}
     </div>
