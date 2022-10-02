@@ -1,9 +1,11 @@
-import { Tab, Tabs } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { useState } from "react";
 import AdminList from "../../components/AdminList";
+import SelectBike from "../../components/SelectBike";
+import BikeTable from "../../components/BikeTable";
 
 const Admin = () => {
   const [value, setValue] = useState(0);
@@ -19,7 +21,14 @@ const Admin = () => {
         <Tab icon={<PersonAddAltIcon />} label="Nueva" />
         <Tab icon={<AdminPanelSettingsIcon />} label="Administrar" />
       </Tabs>
-      {value === 2 ? <AdminList /> : null}
+      {value === 0 ? (
+        <Box>
+          <SelectBike />
+          <BikeTable />
+        </Box>
+      ) : value === 1 ? null : (
+        <AdminList />
+      )}
     </div>
   );
 };
