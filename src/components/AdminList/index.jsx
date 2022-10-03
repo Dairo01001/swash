@@ -14,21 +14,24 @@ const AdminList = () => {
   const navigate = useNavigate();
 
   return (
-    <List
-      sx={{ width: "100%", bgcolor: "background.paper" }}
-      component="nav"
-    >
-      <ListItemButton>
+    <List sx={{ width: "100%", bgcolor: "background.paper" }} component="nav">
+      <ListItemButton
+        onClick={() => {
+          navigate("/employee");
+        }}
+      >
         <ListItemIcon>
           <SupervisorAccountIcon />
         </ListItemIcon>
-        <ListItemText primary="Operarios" />
+        <ListItemText primary="Empleados" />
       </ListItemButton>
-      <ListItemButton>
+      <ListItemButton onClick={() => {
+        navigate("/team");
+      }}>
         <ListItemIcon>
           <GroupsIcon />
         </ListItemIcon>
-        <ListItemText primary="Grupos" />
+        <ListItemText primary="Equipos" />
       </ListItemButton>
       <ListItemButton
         onClick={() => {

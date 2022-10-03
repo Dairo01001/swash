@@ -18,6 +18,7 @@ import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const colors = ["#000000", "#000080", "#ff0000", "#ffff00"];
 const brands = ["AKT", "Bajaj", "Pulsar", "Suzuki", "Honda", "Yamaha"];
@@ -102,7 +103,19 @@ const NewBike = () => {
             paddingTop: 2,
           }}
         >
-          <Button variant="contained" endIcon={<LocalPrintshopIcon />}>
+          <Button
+            variant="contained"
+            endIcon={<LocalPrintshopIcon />}
+            onClick={() => {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Imprimiendo...",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }}
+          >
             Imprimir
           </Button>
         </Stack>
@@ -173,11 +186,11 @@ const NewBike = () => {
           >
             <FormControlLabel
               control={<Checkbox defaultChecked />}
-              label="Empleado 1"
+              label="Daniel Alejandro"
             />
             <FormControlLabel
               control={<Checkbox defaultChecked />}
-              label="Empleado 1"
+              label="Pedro Martinez"
             />
           </FormGroup>
           <Stack paddingTop={2} width="100%">
@@ -196,7 +209,9 @@ const NewBike = () => {
               paddingTop: 2,
             }}
           >
-            <Button variant="contained" endIcon={<PointOfSaleIcon />}>
+            <Button variant="contained" endIcon={<PointOfSaleIcon />} onClick={() => {
+              Swal.fire("Pre-Venta", "Pre-Venta Realizada!", "success");
+            }}>
               Pre-Venta
             </Button>
           </Stack>

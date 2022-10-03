@@ -1,5 +1,5 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import { useState } from "react";
@@ -19,7 +19,7 @@ const Admin = () => {
     <div>
       <Tabs value={value} onChange={handleChange}>
         <Tab icon={<TwoWheelerIcon />} label="Motos" />
-        <Tab icon={<PersonAddAltIcon />} label="Nueva" />
+        <Tab icon={<AddBoxIcon />} label="Nueva Moto" />
         <Tab icon={<AdminPanelSettingsIcon />} label="Administrar" />
       </Tabs>
       {value === 0 ? (

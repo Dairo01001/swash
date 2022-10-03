@@ -8,11 +8,30 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const data = [
-  { plaque: "GJW-60D", start: "10:30 AM", end: "12:00 PM", price: "15000", state: "sale"},
-  { plaque: "RXT-58R", start: "12:30 PM", end: "02:00 PM", price: "14000", state: "presale"},
-  { plaque: "DER-60A", start: "12:00 PM", end: "01:30 PM", price: "18000", state: "sale" },
+  {
+    plaque: "GJW-60D",
+    start: "10:30 AM",
+    end: "12:00 PM",
+    price: "15000",
+    state: "sale",
+  },
+  {
+    plaque: "RXT-58R",
+    start: "12:30 PM",
+    end: "02:00 PM",
+    price: "14000",
+    state: "presale",
+  },
+  {
+    plaque: "DER-60A",
+    start: "12:00 PM",
+    end: "01:30 PM",
+    price: "18000",
+    state: "sale",
+  },
 ];
 
 const BikeTable = () => {
@@ -31,7 +50,11 @@ const BikeTable = () => {
           {data.map(({ plaque, start, end, price }) => {
             return (
               <TableRow key={plaque}>
-                <TableCell>{plaque}</TableCell>
+                <TableCell>
+                  <Link to={`/${plaque}`} style={{ textDecoration: "None" }}>
+                    {plaque}
+                  </Link>
+                </TableCell>
                 <TableCell align="right">{start}</TableCell>
                 <TableCell align="right">{end}</TableCell>
                 <TableCell align="right">{price} $</TableCell>
