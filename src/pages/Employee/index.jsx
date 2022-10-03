@@ -2,8 +2,10 @@ import { Tab, Tabs } from "@mui/material";
 import { useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
+import RegisterEmployee from "../../components/RegisterEmployee";
+import EmployeeTable from "../../components/EmployeeTable";
 
 const Employee = () => {
   const [value, setValue] = useState(0);
@@ -24,6 +26,7 @@ const Employee = () => {
           label="Admin"
         />
       </Tabs>
+      {value === 0 ? <EmployeeTable/> : <RegisterEmployee /> }
     </>
   );
 };
